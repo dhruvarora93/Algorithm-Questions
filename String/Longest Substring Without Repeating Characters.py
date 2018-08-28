@@ -16,5 +16,17 @@ def lengthOfLongestSubstring(s):
     return max(count)
 
 
+def longest_substring(s):
+    longest, count, seen = 0, 0, {}
+    for i in range(len(s)):
+        c = s[i]
+        if c in seen:
+            count = min(i - seen[c], count + 1)
+        else:
+            count += 1
+        seen[c] = i
+        longest = max(longest, count)
+    return longest
 
-print(lengthOfLongestSubstring("dhruv"))
+
+print(longest_substring("abba"))

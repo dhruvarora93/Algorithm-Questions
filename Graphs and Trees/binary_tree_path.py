@@ -13,10 +13,8 @@ def binary_path(root):
 
     result = []
 
-
-
-    def dfs(root,ans=0):
-        ans += root.key
+    def dfs(root, ans=''):
+        ans += str(root.key)
         if root.left is None and root.right is None:
             result.append(ans)
             return
@@ -32,7 +30,7 @@ def binary_path(root):
 
     dfs(root)
 
-    return min(result)
+    return sum(int(i) for i in result)
 
 
 r = Node(1)

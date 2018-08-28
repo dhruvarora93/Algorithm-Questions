@@ -16,7 +16,7 @@ def longestConsecutive(nums):
         print(longest_streak) 
 
 
-longestConsecutive([5,4,200,1,3])
+longestConsecutive([5,4,200,6,3])
 
 
 

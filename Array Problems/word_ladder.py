@@ -1,45 +1,38 @@
 from collections import deque
+from string import ascii_lowercase
 
 
-def word_ladder(begin,end,word_list):
-    if end not in word_list:
-        return 0
-    count = 0
-    queue = deque()
-    queue.insert(0,begin)
-    visited = [None]*len(wordList)
-    remain = 1
-    total = 0
-    visited.append(begin)
+def ladder_length(begin, end, word_list):
+
+    queue = deque([[begin,1]])
+    visited = set([begin])
+
     while queue:
-        word = queue.popleft()
-        remain -= 1
-        if word == end:
-            return count + 1
 
-        for w in word_list:
-            if onediff(word, w) == 1 and w not in visited:
-                total += 1
-                visited.append(w)
-                queue.append(w)
-
-        if total > 0 and remain == 0:
-            count += 1
-            remain = total
-            total = 0
+        item = queue.popleft()
+        for word in generate_neighbors(item[0], word_list):
+            if word == end:
+                return item[1] + 1
+            elif word in visited:
+                continue
+            else:
+                visited.add(word)
+                queue.append([word,item[1]+1])
+    return 0
 
 
-def onediff(w1,w2):
-    count = 0
-    for i in range(len(w1)):
-        if w1[i] != w2[i]:
-            count += 1
-    return count
+def generate_neighbors(word,word_list):
+    for i in range(len(word)):
+        for letter in ascii_lowercase:
+            candidate = word[:i] + letter + word[i+1:]
+            if candidate in word_list:
+                yield candidate
+
 
 beginWord = "hot"
 endWord = "dog"
-wordList = ["hot","cog","dog","tot","hog","hop","pot","dot"]
-print(word_ladder(beginWord,endWord,wordList))
+wordList = ["hot","cot","cog","dog"]
+print(ladder_length(beginWord,endWord,wordList))
 
 
 "hot"

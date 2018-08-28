@@ -12,6 +12,7 @@ def accountsMerge(accounts):
             graph[i[1]].add(email)
             graph[email].add(i[1])
             email_to_name[email] = name
+    #print(graph)
     seen = set()
     result = []
     for email in graph:
