@@ -11,9 +11,10 @@ def find_unsorted_seq(numbers):
     right_max = left_index
 
     for i in range(left_index + 1,right_index):
-
+        print(i)
         if numbers[i] < numbers[left_min]:
             left_min = i
+
 
         if numbers[i] > numbers[right_max]:
             right_max = i
@@ -55,3 +56,6 @@ def shrink_right(numbers,max_index,starting):
 
 
 find_unsorted_seq([1,2,4,7,10,11,8,12,5,6,16,18,19])
+
+
+# Ctci, 16.16

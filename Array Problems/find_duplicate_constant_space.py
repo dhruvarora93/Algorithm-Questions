@@ -26,5 +26,5 @@ def find_duplicate(list_of_numbers):
     return list_of_numbers[starting_index]
 
 
-print(find_duplicate([3,1,4,2,3]))
+print(find_duplicate([1,2,3,3,4]))
 
