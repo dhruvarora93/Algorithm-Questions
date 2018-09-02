@@ -24,12 +24,12 @@ def dfs(board, i, j, word,visited):
     # check whether can find "word" along one direction
     visited[i][j] = True
 
-    res = dfs(board, i+1, j, word[1:],visited) or dfs(board, i-1, j, word[1:],visited) \
+    return dfs(board, i+1, j, word[1:],visited) or dfs(board, i-1, j, word[1:],visited) \
         or dfs(board, i, j+1, word[1:],visited) or dfs(board, i, j-1, word[1:],visited)
 
     visited[i][j] = False
 
-    return res
+
 
 board = \
 [
