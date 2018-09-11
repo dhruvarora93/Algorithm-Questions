@@ -6,7 +6,6 @@ def remove_duplicates(nums):
             j = j + 1
             nums[j] = nums[i]
             first = nums[i]
-    print(nums)
     return j+1
 
 

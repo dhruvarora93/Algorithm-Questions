@@ -1,24 +1,38 @@
-def dfs(row, col, visited, grid):
-    if (row in range(len(grid)) and col in range(len(grid[row])) and not visited[row][col] and grid[row][col] == '1'):
+def dfs(matrix,row, col, visited,indices,count):
+    if (row in range(len(matrix)) and col in range(len(matrix[row])) and not visited[row][col] and matrix[row][col] == '1'):
         visited[row][col] = True
-        dfs(row, col - 1, visited, grid)
-        dfs(row, col + 1, visited, grid)
-        dfs(row - 1, col, visited, grid)
-        dfs(row + 1, col, visited, grid)
+        count[0] += 1
+        indices.append((row,col))
+        dfs(row, col - 1, visited, matrix,indices,count)
+        dfs(row, col + 1, visited, matrix, indices,count)
+        dfs(row - 1, col, visited, matrix, indices,count)
+        dfs(row + 1, col, visited, matrix, indices,count)
 
 
-def numIslands(grid):
-    """
-    :type grid: List[List[str]]
-    :rtype: int
-    """
-    visited = [[False] * len(grid[0]) for _ in range(len(grid))]
-    islands = 0
-    for row in range(len(grid)):
-        for col in range(len(grid[row])):
-            if grid[row][col] == '1' and not visited[row][col]:
-                dfs(row, col, visited, grid)
-                islands += 1
-    return islands
+def find_largest_island(matrix):
 
-print(numIslands([["1","1","1"],["1","0","1"],["1","1","1"]]))
+    visited = [[False] * len(matrix[0]) for _ in range(len(matrix))]
+    max_count = float('-inf')
+    max_indices = []
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if matrix[row][col] == '1' and not visited[row][col]:
+                indices = []
+                count = [0]
+                dfs(row, col, visited, matrix,indices,count)
+                last_count = max_count
+                max_count = max(max_count,count[0])
+                if last_count != max_count:
+                    max_indices = indices
+
+    rows = []
+    columns = []
+    for index in max_indices:
+        rows.append(index[0])
+        columns.append(index[1])
+    bounding_box = [(min(rows),min(columns)),(max(rows),max(columns))]
+    return max_count, bounding_box
+
+print(find_largest_island([['0', '0', '1' ,'1' ,'0', '0', '0', '0', '0'],
+                  ['0', '1', '1' ,'1' ,'1', '0', '1', '1', '0'],
+                  ['1', '0', '0' ,'1' ,'0', '0', '1', '1', '0']]))

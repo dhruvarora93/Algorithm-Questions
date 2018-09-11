@@ -23,4 +23,4 @@ def find_largest_product(lst):
 
     return highest_product_of_3
 
-print(find_largest_product([1,10,-5,-3]))
+print(find_largest_product([1,10,5,-3]))

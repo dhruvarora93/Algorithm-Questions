@@ -39,10 +39,10 @@ def distanceK(root, target, K):
             continue
 
         if parents[node] and parents[node] not in seen:
-            queue.append((parents[node],distance + 1))
+            queue.append((parents[node], distance + 1))
 
         if node.left and node.left not in seen:
-            queue.append((node.left,distance + 1))
+            queue.append((node.left, distance + 1))
 
         if node.right and node.right not in seen:
             queue.append((node.right, distance + 1))

@@ -55,7 +55,7 @@ def contains_sequence(seq):
 
     return minimum_length
 
-#print(contains_sequence([2,1,1,3,3,3,3,1,1,3]))
+print(contains_sequence([2,1,1,3,3,3,3,1,1,3]))
 
 
 

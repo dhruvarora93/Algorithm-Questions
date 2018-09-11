@@ -58,8 +58,8 @@ t = Trie()
 t.add_word('bad')
 t.add_word('dad')
 t.add_word('mad')
-#print(t.search('bad',t.root_node))
-#print(t.search('pad',t.root_node))
+print(t.search('mad',t.root_node))
+#print(t.search('mad',t.root_node))
 
 
 
@@ -67,4 +67,4 @@ t.add_word('mad')
 str1 = 'dhruv'
 str2 = 'bhg'
 
-print(set(str2) - set(str1))
+#print(set(str2) - set(str1))

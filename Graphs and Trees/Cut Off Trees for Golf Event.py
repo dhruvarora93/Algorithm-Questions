@@ -26,20 +26,18 @@ class Solution(object):
 
     def BFS(self, G, cx, cy, tx, ty):
         m, n = len(G), len(G[0])
-        visited = [[False for j in range(n)] for i in range(m)]
+        visited = [[False for _ in range(n)] for _ in range(m)]
         Q = collections.deque()
         step = -1
         Q.append((cx, cy))
         while len(Q) > 0:
-            size = len(Q)
             step += 1
-            for i in range(size):
-                x, y = Q.popleft()
-                visited[x][y] = True
-                if x == tx and y == ty:
-                    return step
-                for nx, ny in [(x + 1, y), (x - 1, y), (x, y-1), (x, y + 1)]:
-                    if nx < 0 or nx >= m or ny < 0 or ny >= n or G[nx][ny] == 0 or visited[nx][ny]:
-                        continue
-                    Q.append((nx, ny))
+            x, y = Q.popleft()
+            visited[x][y] = True
+            if x == tx and y == ty:
+                return step
+            for nx, ny in [(x + 1, y), (x - 1, y), (x, y-1), (x, y + 1)]:
+                if nx < 0 or nx >= m or ny < 0 or ny >= n or G[nx][ny] == 0 or visited[nx][ny]:
+                    continue
+                Q.append((nx, ny))
         return -1

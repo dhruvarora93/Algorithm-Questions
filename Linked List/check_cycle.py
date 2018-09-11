@@ -11,7 +11,7 @@ def check_cycle(node):
     head1 = node
     head2 = node.next
     while head1 != head2:
-        if not head2.next:
+        if not head1.next:
             return False
         if not head2.next.next:
             return False
@@ -31,8 +31,4 @@ b.next = c
 c.next = d
 d.next = e
 e.next = a
-
-
-
-
 print(check_cycle(a))

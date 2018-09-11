@@ -17,7 +17,29 @@ def serialize(root):
                 code += '#$'
         return code
 
+def serialize_recursive(root,output):
+    if not root:
+        output.append(None)
+        return
+
+    output.append(root.val)
+    serialize_recursive(root.left,output)
+    serialize_recursive(root.right,output)
+
+
+def deserialize_recursive(numIter):
+    val = next(numIter)
+    if not val:
+        return None
+
+    node = Node(val)
+    node.left = deserialize_recursive(numIter)
+    node.right = deserialize_recursive(numIter)
+    return node
+
+
 def deserialize(data):
+        val = iter.next()
         data = data[1:].split('#')[::-1]
         print(data)
         val = data.pop()
@@ -47,6 +69,15 @@ root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
 root.left.right.right=Node(10)
+lst = []
+serialize_recursive(root,lst)
+iterator = iter(lst)
+#print(lst)
+r = deserialize_recursive(iterator)
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.val)
+        inorder(root.right)
 
-code = serialize(root)
-r = deserialize(code)
+inorder(r)

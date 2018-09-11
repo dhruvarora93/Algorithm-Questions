@@ -18,7 +18,32 @@ def get_permutation(string):
     return permutations
 
 
-print(get_permutation('abc'))
+def compress(data):
+    seen = get_permutation(data)
+    index = 0
 
-print([1,2,3] + [2])
 
+def compress(data):
+    seen = set()
+    output = []
+    index = 0
+    while index < len(data):
+        if data[index] not in seen:
+            output.append((0, data[index]))
+            seen.add(data[index])
+            for i in range(index + 1):
+                seen.add(data[i:index + 1])
+            index += 1
+        else:
+            matched_length = 1
+            for i in range(index, len(data)):
+                if data[index:i+1] in seen:
+                    matched_length = max(matched_length, len(data[index:i+1]))
+            output.append((1, matched_length, matched_length))
+            for i in range(index+1):
+                seen.add(data[i:index+1])
+            index += matched_length
+    print(output)
+
+
+compress('FOOFOODFOOD')

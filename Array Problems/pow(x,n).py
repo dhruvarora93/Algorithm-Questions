@@ -13,4 +13,4 @@ def power(x,n):
     return answer
 
 
-print(power(2,5))
+print(power(2,9))

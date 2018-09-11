@@ -13,21 +13,34 @@ class BinaryTreeNode(object):
         self.right = BinaryTreeNode(value)
         return self.right
 
+def find_largest(root_node):
+    current = root_node
+    while current:
+        if not current.right:
+            return current.value
+        current = current.right
+
+
 def find_second_largest(root_node):
-    if root_node.right.right:
-        return find_second_largest(root_node.right)
+    if (root_node is None or
+            (root_node.left is None and root_node.right is None)):
+        raise ValueError('Tree must have at least 2 nodes')
 
-    elif root_node.right.left:
-        return find_rightmost(root_node.right.left)
+    current = root_node
+    while current:
+        # Case: current is largest and has a left subtree
+        # 2nd largest is the largest in that subtree
+        if current.left and not current.right:
+            return find_largest(current.left)
 
-    else:
-        return root_node
+        # Case: current is parent of largest, and largest has no children,
+        # so current is 2nd largest
+        if (current.right and
+                not current.right.left and
+                not current.right.right):
+            return current.value
 
-def find_rightmost(root):
-    while root.right:
-        return find_rightmost(root.right)
-
-    return root
+        current = current.right
 
 
 
@@ -51,11 +64,11 @@ bt1.left = bt2
 bt8.left = bt9
 bt8.right = bt10
 
-#bt7.left = bt8
+bt7.left = bt8
 bt3.right = bt7
 bt3.left = bt6
 bt1.right = bt3
 
 
-print(find_second_largest(bt1).value)
+print(find_second_largest(bt1))
 

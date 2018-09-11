@@ -12,7 +12,7 @@ def bfs(graph, start_node, end_node):
             # Found it!
 
         for neighbor in graph[current_node]:
-            if neighbor not in shortest_path:
+            if (neighbor not in shortest_path and neighbor in graph) or neighbor == end_node:
                 nodes_to_visit.append(neighbor)
                 shortest_path[neighbor] = current_node
 
@@ -42,7 +42,7 @@ network = {
 
 }
 
-print(bfs(network,'Jayden','Adam'))
+print(bfs(network,'Jayden','Miguel'))
 
 
 
