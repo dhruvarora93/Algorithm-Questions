@@ -54,4 +54,4 @@ def minMeetingRooms(intervals):
         else:
             end_index += 1
     print(rooms)
-#minMeetingRooms([[0,30],[5,10],[15,20]])
+minMeetingRooms([[0,30],[5,10],[15,20]])

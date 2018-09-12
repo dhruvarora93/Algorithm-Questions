@@ -10,7 +10,7 @@ def find_duplicate(list_of_numbers):
         items_in_lower = 0
 
         for num in list_of_numbers:
-            if num >= lower_starting and num <= lower_ending:
+            if lower_starting <= num <= lower_ending:
                 items_in_lower += 1
 
         distinct_numbers = lower_ending - lower_starting + 1

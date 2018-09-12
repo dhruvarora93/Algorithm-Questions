@@ -22,7 +22,6 @@ def find_next_greatest(number):
     return ''.join(reverse(digits,end_index))
 
 
-
 def reverse(number,index):
     start = index
     end = len(number) - 1

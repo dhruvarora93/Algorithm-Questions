@@ -21,7 +21,7 @@ def remove_invalid_parantheses(string):
                         visited.add(candidate)
                         queue.append(candidate)
 
-    return ans
+    return max([len(i) for i in ans])
 
 
 def isValid(string):
@@ -37,4 +37,4 @@ def isValid(string):
     return count == 0
 
 
-print(remove_invalid_parantheses("(a)())()"))
+print(remove_invalid_parantheses("(()"))
