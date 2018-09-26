@@ -2,7 +2,7 @@ def combinationSum(candidates, target):
 
     result = []
     final = []
-    helper(final,result,candidates,target,0)
+    helper(final, result, candidates, target, 0)
     print(final)
 
 
@@ -15,7 +15,7 @@ def helper(output, temp, candidates, target, index):
     else:
         for i in range(index,len(candidates)):
             temp.append(candidates[i])
-            helper(output,temp,candidates,target-candidates[i],i)
+            helper(output,temp,candidates,target-candidates[i], i+1)
             temp.pop()
 
 

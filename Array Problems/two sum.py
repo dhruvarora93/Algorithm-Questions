@@ -15,4 +15,4 @@ def find_two_movies(duration,timings):
     return False
 
 
-print(find_two_movies(3,[1,1,1]))
+print(find_two_movies(3,[1,2,1]))

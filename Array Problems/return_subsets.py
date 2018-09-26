@@ -17,7 +17,6 @@ def get_subsets(l):
     return allsubsets
 
 
-
 print(get_subsets([1,2,3,4]))
 
 

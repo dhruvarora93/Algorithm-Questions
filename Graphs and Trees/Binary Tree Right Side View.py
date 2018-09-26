@@ -29,7 +29,7 @@ def right_side_view(root):
         right_view = []
         next_pointers = connect(root)
         for i in next_pointers:
-            right_view.append(i[-1].val)
+            right_view.append(i[0].val)
 
         return right_view
 

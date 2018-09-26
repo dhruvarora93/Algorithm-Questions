@@ -27,7 +27,7 @@ def is_number(s):
     return True
 
 
-print(is_number('1245'))
+print(is_number('1e-245'))
 
 
 ## Draw a DFA of states

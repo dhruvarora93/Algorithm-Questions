@@ -29,4 +29,20 @@ def longest_substring(s):
     return longest
 
 
-print(longest_substring("dhruvv"))
+def length_of_longest_substring(string):
+    left, right, seen = 0, 0, set()
+    length = float('-inf')
+    while right < len(string):
+        if string[right] in seen:
+            seen.remove(string[left])
+            left += 1
+        else:
+            seen.add(string[right])
+            right += 1
+            length = max(length, right - left)
+
+    return length
+
+
+
+print(length_of_longest_substring("pwwabwkew"))

@@ -1,4 +1,4 @@
-def power(x,n):
+def power(x, n):
     if n < 0:
         n = -n
         x = 1 / x
@@ -13,4 +13,4 @@ def power(x,n):
     return answer
 
 
-print(power(2,9))
+print(power(2, 9))

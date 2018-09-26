@@ -33,6 +33,6 @@ def number_exists_dp(numbers, n, target):
     return table[n][target]
 
 
-print(number_exists_dp(numbers, len(numbers), 12))
+print(number_exists_dp(numbers, len(numbers), 20))
 
 

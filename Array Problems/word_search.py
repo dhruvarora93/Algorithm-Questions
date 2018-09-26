@@ -38,4 +38,4 @@ board = \
   ['B','C','D']
 ]
 
-print(exist(board,"CAC"))
+print(exist(board,"CAB"))

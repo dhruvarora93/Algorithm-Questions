@@ -20,7 +20,7 @@ class Graph:
             if(self.state[v]=='Blank'):
                 if self.dfs(v,order):
                    pass
-        return ''.join(order)
+        return order
 
     def dfs(self,v,order):
         if self.state[v]=='Partial':

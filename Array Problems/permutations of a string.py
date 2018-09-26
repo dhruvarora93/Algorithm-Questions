@@ -19,11 +19,6 @@ def get_permutation(string):
 
 
 def compress(data):
-    seen = get_permutation(data)
-    index = 0
-
-
-def compress(data):
     seen = set()
     output = []
     index = 0
